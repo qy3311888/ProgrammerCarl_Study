@@ -23,4 +23,24 @@ public class ex001_BinarySearch {
         }
         return -1;
     }
+
+    public int ex1(int[] nums, int target) {
+        if (target < nums[0] || target > nums[nums.length - 1]) {
+            return -1;
+        }
+
+        int left = 0, right = nums.length - 1;
+        int middle;
+        for (int i = 0; i < nums.length; i++) {
+            middle = left + (right - left) / 2;
+            if (target < nums[middle]) {
+                right = middle + 1;
+            } else if (target > nums[middle]) {
+                left = middle;
+            } else {
+                return middle;
+            }
+        }
+        return -1;
+    }
 }
